@@ -1,0 +1,18 @@
+    UINT8 IN_B(UINT16 port)  
+    {  
+      UINT8 ret;  
+      asm volatile("inb %1, %0" :"=a"(ret) :"Nd"(port) );  
+      return ret;  
+    }  
+        typedef struct list_node{  
+      int data;  
+      struct list_node *next;  
+    }LIST_NODE;  
+        LIST_NODE *getNewListNode(int data)  
+    {  
+      LIST_NODE *newnode = (LIST_NODE*)0x00000500 + MEM_SIZE;  
+      newnode->data = data;  
+      newnode->next = NULL;  
+      MEM_SIZE += sizeof(LIST_NODE);  
+      return newnode;  
+    }  

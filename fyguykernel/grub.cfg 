@@ -1,0 +1,4 @@
+ 
+    menuentry "FYGUYOS" {  
+        multiboot /boot/FYGUYOS.bin  
+    }  
